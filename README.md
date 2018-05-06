@@ -1,6 +1,6 @@
 Firmware code for the I2C slave arduino pro mini
 
-see I2Csapm library
+see [I2Csapm library](https://github.com/jorts64/I2Csapm)
 
 ![Arduino pro mini connections](https://github.com/jorts64/I2Csapm/blob/master/docs/promini8MHz.png)
 
