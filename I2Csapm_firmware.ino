@@ -4,8 +4,20 @@
  */
 
 #include <Wire.h>
-
 #define I2CADDR 2
+
+#include <Keypad.h>
+const byte ROWS = 4; //four rows
+const byte COLS = 4; //four columns
+char keys[ROWS][COLS] = {
+  {'1', '2', '3', 'S'},
+  {'4', '5', '6', 'G'},
+  {'7', '8', '9', 'L'},
+  {'*', '0', '#', 'P'}
+};
+byte rowPins[ROWS] = {2, 3, 4, 5}; //connect to the row pinouts of the keypad
+byte colPins[COLS] = {6, 7, 8, 9}; //connect to the column pinouts of the keypad
+Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
  byte ordre = 0;
 
@@ -15,7 +27,6 @@
  int rot;
  int sw1;
  int ledout;
- int key=-1;      // not implemented yet
  int analin[6];
 
  int pinA = 3;  // Connected to CLK on KY-040
@@ -131,7 +142,7 @@ void respon() {
       resposta = encoderPosCount;
       break;
     case 9:
-      resposta = key;
+      resposta = keypad.getKey();
       break;
     case 16:
     case 17:
