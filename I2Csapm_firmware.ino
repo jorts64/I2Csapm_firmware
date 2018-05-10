@@ -29,8 +29,8 @@ Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
  int ledout;
  int analin[6];
 
- int pinA = 3;  // Connected to CLK on KY-040
- int pinB = 4;  // Connected to DT on KY-040
+ int pinA = 10;  // Connected to CLK on KY-040
+ int pinB = 11;  // Connected to DT on KY-040
  int encoderPosCount = 0; 
  int pinALast;  
  int aVal;
@@ -101,10 +101,10 @@ void loop() {
 void escolta(int ordrelen) {
   ordre = Wire.read();
   switch(ordre) {
-    case 1:
+    case 64:
       ledout=1;
       break;
-    case 2:
+    case 65:
       ledout=0;
       break;
   }
